@@ -88,10 +88,10 @@ function handleUpdate(index){
 function handleAddButton() {
     document.getElementById('textInput').value = '';
     if(textValue !== ""){
-        newArrayList.push(textValue)
-        renderListItem(newArrayList)
+        newArrayList.push(textValue);
+        renderListItem(newArrayList);
     }else{
-        return null
+        return null;
     }
     removeItemList = [];
     renderMultipleDelete();
