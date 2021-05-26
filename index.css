@@ -1,6 +1,63 @@
+.container {
+    width: 50%;
+    margin: auto;
+    min-width: 400px;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+#multiple-delete {
+    display: none;
+}
+
+.input-box {
+    display: block;
+    text-align: initial;
+}
+
+.top-buttons {
+    display: inline-block;
+    float: right;
+}
+
+button#add-btn {
+    background-color: green !important;
+}
+
+button.edit-btn {
+    background-color: #0935d4d9;
+}
+
+.item-buttons {
+    display: inline-block;
+    float: right;
+}
+
+.text-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    display: inline-block;
+}
+
 button {
-    background: #F44336;
+    background-color: #F44336;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#textInput {
+    min-width: 200px;
+    margin-right: 20px;
+}
+
+.list-box {
+    margin-top: 30px;
+}
+
+#myText {
+    text-align: left;
 }

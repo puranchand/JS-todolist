@@ -5,25 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
-   
 </head>
 <body>
     <div class="container">
+        <h2><u>JS Todolist</u></h2>
         <div class="input-box">
             <input type="text" placeholder="Type anything..." id="textInput" value="" onchange="myOnChange(this.value)"/>
-            <button id="add-btn" type="button" onclick = "handleAddButton()">Add</button>
-            <button type="button" onclick = "multipleDelete()">delete selected</button>
+            <div class="top-buttons">
+                <button id="add-btn" type="button" onclick="handleAddButton()">Add</button>
+                <button id="multiple-delete" type="button" onclick="multipleDelete()">delete selected</button>
+            </div>
         </div>
-        <div>
-        <!-- <ul id="todolist">
-            <li>item</li>
-          </ul> -->
-
-
+        <div class="list-box">
           <div id="myText" onclick="deleteItem()"></div>
         </div>
-
-        <p id="demo"></p>
     </div>
     <script type="text/javascript" src="index.js"></script>
 </body>
