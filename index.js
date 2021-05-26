@@ -8,20 +8,22 @@ function myOnChange(val) {
     textVaule = val;
 }
 
+var inputFiled = document.getElementById("textInput");
+inputFiled.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("add-btn").click();
+  }
+});
+
 function selectItem (index) {
     if(removeItemList.includes(index)){
-        removeItemList.splice(index, 1);
+        removeItemList = removeItemList.filter(function (item) {
+            return item != index
+        })
     }else{
         removeItemList.push(index);
     }
-
-    // if (selectedIndex > -1) {
-    //     removeItemList.splice(selectedIndex, 1);
-    // }else{
-    //     removeItemList.push(index);
-    // }
-
-    console.log(removeItemList, "removeItemList")
 }
 
 function deleteItem (index) {
@@ -30,17 +32,19 @@ function deleteItem (index) {
         var text = "";
         
         for (i = 0; i < newArrayList.length; i++) {
-            text += `<div><button class="check" onclick="selectItem(${i})">check</button>${newArrayList[i]} <span class="delete-icon" onclick="deleteItem(${i})">X</span></div>` + "<br>";
+            text += `<div><input type="checkbox" class="check" onclick="selectItem(${i})"></input> ${newArrayList[i]} <span class="delete-icon" onclick="deleteItem(${i})">X</span></div>` + "<br>";
         }
         document.getElementById("myText").innerHTML = text;
     }    
 }
 
 function multipleDelete(){
-    newArrayList = newArrayList.filter((ad, indexId) => removeItemList.every(fd => fd !== indexId));
+    newArrayList = newArrayList.filter(function (ad, indexId) {
+        return removeItemList.every(fd => fd !== indexId);
+    })
     var text = "";
     for (i = 0; i < newArrayList.length; i++) {
-        text += `<div><button class="check" onclick="selectItem(${i})">check</button>${newArrayList[i]} <span class="delete-icon" onclick="deleteItem(${i})">X</span></div>` + "<br>";
+        text += `<div><input type="checkbox" class="check" onclick="selectItem(${i})"></input> ${newArrayList[i]} <span class="delete-icon" onclick="deleteItem(${i})">X</span></div>` + "<br>";
     }
 
     document.getElementById("myText").innerHTML = text;
@@ -51,13 +55,12 @@ function multipleDelete(){
 
 function handleAddButton() {
     document.getElementById('textInput').value = '';
-
     if(textVaule !== ""){
         newArrayList.push(textVaule)
         var text = "";
         for (i = 0; i < newArrayList.length; i++) {
             textVaule = "";
-            text += `<div><button class="check" onclick="selectItem(${i})">check</button> ${newArrayList[i]} <span class="delete-icon" onclick="deleteItem(${i})">X</span></div> ` + "<br>";
+            text += `<div><input type="checkbox" class="check" onclick="selectItem(${i})"></input> ${newArrayList[i]} <span class="delete-icon" onclick="deleteItem(${i})">X</span></div> ` + "<br>";
         }
         document.getElementById("myText").innerHTML = text;
     }else{
